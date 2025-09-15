@@ -8,6 +8,7 @@
     * testar performance: perf stat ./cinema
     * Testar com Valgrind: valgrind --tool=helgrind ./cinema
     * Execução: ./cinema
+    * Para o main.trace foram utilizados além dos parâmetros abaixo as opções 4 e 5 respecitvamente na execução do simulador de assentos do cinema
 */
 
 
