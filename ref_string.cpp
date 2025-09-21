@@ -6,6 +6,7 @@ using namespace std;
 
 int main() {
     
+    int count = 0;
     // abre o arquivo de trace para leitura
     ifstream trace("./codigos_teste/multithreading/main.trace", ios::in);
     ofstream arq("./codigos_teste/multithreading/reference_string.txt", ios::out);
@@ -44,10 +45,15 @@ int main() {
             arq << current << endl; // escreve o endereço atual no arquivo de saída
             previous = current; // atualiza o endereço anterior
             current = ""; // reseta o endereço atual
+            count++;
+
         }else{
             previous = current; // atualiza o endereço anterior
             current = ""; // reseta o endereço atual se for igual ao anterior
         }
+
+        if(count >= 500000) break; // limita a 1000 endereços
+        
                 
     }
 

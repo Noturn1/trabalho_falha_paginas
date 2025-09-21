@@ -94,7 +94,7 @@ void alocar_lugar_sequencialmente(char assentos[FILAS][COLUNAS]){
 // Alocação paralela sem sincronização
 
 void* alocar_lugar_paralelamente(void* arg){
-    char (*assentos)[FILAS][COLUNAS] = arg;
+    char (*assentos)[FILAS][COLUNAS] = (char (*)[FILAS][COLUNAS]) arg;
     int tentativas = 0;
     const int MAX_TENTATIVAS = NUM_ASSENTOS * 10;
 
@@ -117,7 +117,7 @@ void* alocar_lugar_paralelamente(void* arg){
 
 // Alocação paralela com sincronização
 void* alocar_lugar_paralelamente_sync(void* arg){
-    char (*assentos)[FILAS][COLUNAS] = arg;
+    char (*assentos)[FILAS][COLUNAS] = (char (*)[FILAS][COLUNAS]) arg;
     while(1){
         int fila = rand() % FILAS;
         int coluna = rand() % COLUNAS;

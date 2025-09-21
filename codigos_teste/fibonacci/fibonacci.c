@@ -41,16 +41,21 @@ int main (){
 
     switch(op){
 
-        case 1:
+        case 1:{
             printf("Calculando F(%d) usando o método recursivo...\n", num_fibo);
             long long resultado_rec = fibonacci_recursivo(num_fibo);
             printf("O número de Fibonacci na posição %d é: %lld\n", num_fibo, resultado_rec);
             return 1;
+        }
 
-        case 2:
+        case 2:{
             printf("Calculando F(%d) usando o método iterativo...\n", num_fibo);
             long long resultado_it = fibonacci_iterativo(num_fibo);
             printf("O número de Fibonacci na posição %d é: %lld\n", num_fibo, resultado_it);
+            return 1;
+        }
+        default:
+            printf("Opção inválida. Escolha 1 ou 2.\n");
             return 1;
     }
 

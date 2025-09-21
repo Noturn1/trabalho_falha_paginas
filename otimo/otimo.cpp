@@ -43,8 +43,9 @@ void optimal_page(vector<int> pages, int n_pages, int frame_items[], int max_fra
 
     int frames_occupied = 0; // contador de quadros ocupados
     int hits = 0; // contador de acertos
+    int i;
 
-    for(int i = 0; i < n_pages; i++){
+    for(i = 0; i < n_pages; i++){
         if(search(pages[i], frame_items, frames_occupied)){
             hits++;
             continue;
@@ -59,10 +60,12 @@ void optimal_page(vector<int> pages, int n_pages, int frame_items[], int max_fra
             frame_items[index] = pages[i];
         }
 
-        cout << "Hits: " << hits << endl;
-        cout << "Misses: " << i + 1 - hits << endl;
-        cout << "Hit ratio: " << (float)hits / (i + 1) << endl << endl;
+        
     }
+
+    cout << "Hits: " << hits << endl;
+    cout << "Misses: " << i - hits << endl;
+    cout << "Hit ratio: " << (float)hits / i << endl << endl;
 }
 
 int main(){
@@ -72,8 +75,7 @@ int main(){
     
     string page_ref;
     vector<int> pages; // vetor para armazenar as páginas referenciadas
-    int max_frames = 4; // número máximo de quadros de página
-    int frame_items[max_frames]; // array para armazenar as páginas nos quadros
+    vector<int> max_frames = {4, 8, 16, 32, 64, 128}; // número máximo de quadros de página
 
     if(ref_string.is_open()){
         cout << "Arquivo reference_string.txt aberto com sucesso!" << endl << endl;    
@@ -90,8 +92,10 @@ int main(){
         pages.push_back(page); // adiciona a página referenciada ao vetor
     }
 
-
-    optimal_page(pages, pages.size(), frame_items, max_frames);
+    for(int i = 0; i < max_frames.size(); i++){
+        int frame_items[max_frames[i]];
+        optimal_page(pages, pages.size(), frame_items, max_frames[i]);
+    }
 
 
     return 0;
