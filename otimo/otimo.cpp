@@ -63,9 +63,11 @@ void optimal_page(vector<int> pages, int n_pages, int frame_items[], int max_fra
         
     }
 
+    cout << "Acessos: " << pages.size() << endl;
     cout << "Hits: " << hits << endl;
     cout << "Misses: " << i - hits << endl;
-    cout << "Hit ratio: " << (float)hits / i << endl << endl;
+    cout << "Hit ratio: " << (float)hits / i << endl;
+    cout << "Fault ratio: " << (float)(i - hits) / i << endl << endl;
 }
 
 int main(){
