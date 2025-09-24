@@ -1,0 +1,10 @@
+print1
+5 5
+print2
+2 2
+print3
+10 10
+print4
+2 2
+print5
+1 1

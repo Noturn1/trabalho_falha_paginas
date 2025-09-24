@@ -1,0 +1,11 @@
+print1
+8
+recursivo
+print2
+5 recursivo
+print3
+12 iterativo
+print4
+15 recursivo
+print5
+2 iterativo
